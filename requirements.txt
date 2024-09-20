@@ -2,3 +2,4 @@ Flask
 SQLAlchemy
 Flask-WTF
 flask_bootstrap
+Flask-SQLAlchemy
