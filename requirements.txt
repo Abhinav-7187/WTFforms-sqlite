@@ -1,4 +1,4 @@
 Flask
 SQLAlchemy
 Flask-WTF
-bootstrap-flask
+flask_bootstrap

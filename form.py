@@ -8,15 +8,11 @@ import os
 import secrets
 
 app = Flask(__name__)
-
-# Generate the secret key
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', secrets.token_hex(16))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'  # SQLite database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-
 db = SQLAlchemy(app)
-# Initialize Bootstrap for your app
 Bootstrap4(app)
 
 # Define the User model
@@ -29,7 +25,7 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
-# Define the form class using Flask-WTF
+# Define the RegistrationForm
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
